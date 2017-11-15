@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/syou6162/mackerel-plugin-aws-batch/lib"
+	"github.com/mackerelio/mackerel-plugin-aws-batch/lib"
 )
 
 func main() {

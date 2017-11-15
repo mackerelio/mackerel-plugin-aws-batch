@@ -3,7 +3,7 @@
 ## Install
 
 ```sh
-% mkr plugin install syou6162/mackerel-plugin-aws-batch
+% mkr plugin install mackerelio/mackerel-plugin-aws-batch
 ```
 
 ## Setting

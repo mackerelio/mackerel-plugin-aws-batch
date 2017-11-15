@@ -5,4 +5,4 @@
 set -e
 latest_tag=$(git describe --abbrev=0 --tags)
 goxc
-ghr -u syou6162 -r mackerel-plugin-aws-batch $latest_tag dist/snapshot/
+ghr -u mackerelio -r mackerel-plugin-aws-batch $latest_tag dist/snapshot/

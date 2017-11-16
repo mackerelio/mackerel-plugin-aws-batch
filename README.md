@@ -10,5 +10,5 @@
 
 ```
 [plugin.metrics.aws-batch]
-command = "/path/to/mackerel-plugin-aws-batch -access-key-id=XXXXX -secret-access-key=XXXXX -job-queue=MyJobQueue -region=ap-northeast-1"
+command = "/path/to/mackerel-plugin-aws-batch -access-key-id=XXXXX -secret-access-key=XXXXX -job-queue=MyJobQueue1 -job-queue=MyJobQueue2 -region=ap-northeast-1"
 ```

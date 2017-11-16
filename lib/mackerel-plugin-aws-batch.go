@@ -2,6 +2,7 @@ package mpawsbatch
 
 import (
 	"flag"
+	"fmt"
 	"log"
 
 	"github.com/aws/aws-sdk-go/aws"
@@ -29,12 +30,14 @@ func (p AwsBatchPlugin) GraphDefinition() map[string](mp.Graphs) {
 	return graphdef
 }
 
+type jobQueueNames []string
+
 type AwsBatchPlugin struct {
 	AccessKeyID     string
 	SecretAccessKey string
 	Region          string
 	Batch           *batch.Batch
-	JobQueue        string
+	JobQueues       jobQueueNames
 }
 
 // FetchMetrics fetch the metrics
@@ -42,10 +45,12 @@ func (p AwsBatchPlugin) FetchMetrics() (map[string]interface{}, error) {
 	stat := make(map[string]interface{})
 	statuses := []string{"SUBMITTED", "PENDING", "RUNNABLE", "STARTING", "RUNNING"}
 
-	for _, s := range statuses {
-		n, err := p.getLastPoint(s)
-		if err == nil {
-			stat["aws.batch.jobs."+p.JobQueue+"."+s] = n
+	for _, name := range p.JobQueues {
+		for _, s := range statuses {
+			n, err := p.getLastPoint(name, s)
+			if err == nil {
+				stat["aws.batch.jobs."+name+"."+s] = n
+			}
 		}
 	}
 	return stat, nil
@@ -69,9 +74,9 @@ func (p *AwsBatchPlugin) prepare() error {
 	return nil
 }
 
-func (p AwsBatchPlugin) getLastPoint(status string) (float64, error) {
+func (p AwsBatchPlugin) getLastPoint(name string, status string) (float64, error) {
 	input := &batch.ListJobsInput{
-		JobQueue:  aws.String(p.JobQueue),
+		JobQueue:  aws.String(name),
 		JobStatus: aws.String(status),
 	}
 
@@ -82,19 +87,29 @@ func (p AwsBatchPlugin) getLastPoint(status string) (float64, error) {
 	return float64(len(result.JobSummaryList)), nil
 }
 
+func (j *jobQueueNames) String() string {
+	return fmt.Sprint("%v", *j)
+}
+
+func (j *jobQueueNames) Set(v string) error {
+	*j = append(*j, v)
+	return nil
+}
+
 func Do() {
+	var plugin AwsBatchPlugin
+	var jqn jobQueueNames
+
 	optAccessKeyID := flag.String("access-key-id", "", "AWS Access Key ID")
 	optSecretAccessKey := flag.String("secret-access-key", "", "AWS Secret Access Key")
 	optRegion := flag.String("region", "", "AWS Batch Job Region")
-	optJobQueue := flag.String("job-queue", "", "AWS Batch Job Queue Name")
+	flag.Var(&jqn, "job-queue", "AWS Batch Job Queue Name")
 	flag.Parse()
-
-	var plugin AwsBatchPlugin
 
 	plugin.AccessKeyID = *optAccessKeyID
 	plugin.SecretAccessKey = *optSecretAccessKey
 	plugin.Region = *optRegion
-	plugin.JobQueue = *optJobQueue
+	plugin.JobQueues = jqn
 
 	err := plugin.prepare()
 	if err != nil {

@@ -1,4 +1,4 @@
-# mackerel-plugin-aws-batch
+# mackerel-plugin-aws-batch [![Build Status](https://travis-ci.org/mackerelio/mackerel-plugin-aws-batch.svg?branch=master)](https://travis-ci.org/mackerelio/mackerel-plugin-aws-batch)
 
 ## Install
 

@@ -32,6 +32,7 @@ func (p AwsBatchPlugin) GraphDefinition() map[string](mp.Graphs) {
 
 type jobQueueNames []string
 
+// AwsBatchPlugin is a mackerel plugin
 type AwsBatchPlugin struct {
 	AccessKeyID     string
 	SecretAccessKey string
@@ -88,7 +89,7 @@ func (p AwsBatchPlugin) getLastPoint(name string, status string) (float64, error
 }
 
 func (j *jobQueueNames) String() string {
-	return fmt.Sprint("%v", *j)
+	return fmt.Sprintf("%v", *j)
 }
 
 func (j *jobQueueNames) Set(v string) error {
@@ -96,6 +97,7 @@ func (j *jobQueueNames) Set(v string) error {
 	return nil
 }
 
+// Do the plugin
 func Do() {
 	var plugin AwsBatchPlugin
 	var jqn jobQueueNames

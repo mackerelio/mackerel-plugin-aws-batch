@@ -24,6 +24,8 @@ func (p AwsBatchPlugin) GraphDefinition() map[string](mp.Graphs) {
 				mp.Metrics{Name: "RUNNABLE", Label: "RUNNABLE"},
 				mp.Metrics{Name: "STARTING", Label: "STARTING"},
 				mp.Metrics{Name: "RUNNING", Label: "RUNNING"},
+				mp.Metrics{Name: "FAILED", Label: "FAILED"},
+				mp.Metrics{Name: "SUCCEEDED", Label: "SUCCEEDED"},
 			},
 		},
 	}
@@ -44,7 +46,7 @@ type AwsBatchPlugin struct {
 // FetchMetrics fetch the metrics
 func (p AwsBatchPlugin) FetchMetrics() (map[string]interface{}, error) {
 	stat := make(map[string]interface{})
-	statuses := []string{"SUBMITTED", "PENDING", "RUNNABLE", "STARTING", "RUNNING"}
+	statuses := []string{"SUBMITTED", "PENDING", "RUNNABLE", "STARTING", "RUNNING", "FAILED", "SUCCEEDED"}
 
 	for _, name := range p.JobQueues {
 		for _, s := range statuses {

@@ -51,15 +51,19 @@ func (p AwsBatchPlugin) FetchMetrics() (map[string]interface{}, error) {
 	for _, name := range p.JobQueues {
 		for _, s := range statuses {
 			n, err := p.getLastPoint(name, s)
-			if err == nil {
-				stat["aws.batch.jobs."+name+"."+s] = n
+			if err != nil {
+				return nil, err
 			}
+			stat["aws.batch.jobs."+name+"."+s] = n
 		}
 	}
 	return stat, nil
 }
 
 func (p *AwsBatchPlugin) prepare() error {
+	if len(p.JobQueues) == 0 {
+		return fmt.Errorf("Missing job queue names")
+	}
 	sess, err := session.NewSession()
 	if err != nil {
 		return err

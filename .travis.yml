@@ -4,4 +4,4 @@ go:
 script:
   - make lint
 after_success:
-  - if [[ $TRAVIS_TAG =~ ^v[0-9].*$ ]]; then script/release; fi
+  - script/release

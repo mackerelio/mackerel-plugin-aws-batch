@@ -61,6 +61,9 @@ func (p AwsBatchPlugin) FetchMetrics() (map[string]interface{}, error) {
 }
 
 func (p *AwsBatchPlugin) prepare() error {
+	if len(p.JobQueues) == 0 {
+		return fmt.Errorf("Missing job queue names")
+	}
 	sess, err := session.NewSession()
 	if err != nil {
 		return err

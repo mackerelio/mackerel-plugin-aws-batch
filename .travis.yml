@@ -1,7 +1,10 @@
 language: go
 go:
-  - "1.12.x"
+- 1.12.x
 script:
-  - make lint
+- make lint
 after_success:
-  - script/release
+- script/release
+env:
+  global:
+    secure: qIMBkaFnhPHhRLb6pxALuXlp1KzAPSXLoyQy9+8veW2XTF0igCdNMfnX1hzimH8XMxgtTDbTnq+ukAl7FtKefnJzndTKdvvZuFLLjRej4kVH+AigqI5yReUkpkFWjicTf58HXS4xM5qSbBuEwm6XqY7nuh/IQF4ppNYiKag3AWLkst2rfAWYCWcVuIacBApkFlDJGAuSIGGTjZQyOSPSq4uyGBYl3cGTLD3thGhWP+KSjxViMNIQqRqcEE2CRkKQPs6ucLN72OsSi5mIMQZm59TY1dZPt3fWZgqGeqU+X4rZksvKeDsktTc1T0ggsmj4zHnFC6IrHO9IhoVoD/XUIZLZL0GoBtYqq6+N/jAucoSRQXEVlWXMb9GHt0BJ6MuBMWCrT5VLnTsMe2P04BlplTvZKckb2QroJurQ+OE+2EBk9jGKb/0DLOWLN7Zze5qbKf+AAyxn+5R2eNDz8RkADSpKSzghH5OOf9TllZgCSL0lioeefBerXEexWA/T25cpnb6oMFT2X5RjPxbHxh4BCc1fxZbCvzZt1PaBfwLWsCoCr2hBX5Tl4UNq8i5ESV6Ks1bxVdSVECFAPsM7POjRDje5HluLxu2ybz3YSFy3Cw8FjJNPjXCexB0PHfO+6wxrcH2yPbuUbbw295lWiGScKiWlgLlMEADHlnzggl16lTQ=

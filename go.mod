@@ -3,6 +3,6 @@ module github.com/mackerelio/mackerel-plugin-aws-batch
 go 1.12
 
 require (
-	github.com/aws/aws-sdk-go v1.21.1
+	github.com/aws/aws-sdk-go v1.21.2
 	github.com/mackerelio/go-mackerel-plugin-helper v0.0.0-20190524092734-fdbc9682b640
 )

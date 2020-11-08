@@ -1,7 +1,7 @@
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/Songmu/retry v0.1.0/go.mod h1:7sXIW7eseB9fq0FUvigRcQMVLR9tuHI0Scok+rkpAuA=
-github.com/aws/aws-sdk-go v1.35.2 h1:qK+noh6b9KW+5CP1NmmWsQCUbnzucSGrjHEs69MEl6A=
-github.com/aws/aws-sdk-go v1.35.2/go.mod h1:H7NKnBqNVzoTJpGfLrQkkD+ytBA93eiDYi/+8rV9s48=
+github.com/aws/aws-sdk-go v1.35.23 h1:SCP0d0XvyJTDmfnHEQPvBaYi3kea1VNUo7uQmkVgFts=
+github.com/aws/aws-sdk-go v1.35.23/go.mod h1:tlPOdRjfxPBpNIwqDj61rmsnA85v9jc0Ps9+muhnW+k=
 github.com/bmizerany/assert v0.0.0-20160611221934-b7ed37b82869/go.mod h1:Ekp36dRnpXw/yCqJaO+ZrUyxD+3VXMFFr56k5XYrpB4=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
@@ -9,7 +9,6 @@ github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSs
 github.com/fhs/go-netrc v1.0.0/go.mod h1:tGgE+SHFQhgo1jg+hG6/uCxBJv5Pnq7pTMjvaEWrOu8=
 github.com/github/hub v2.11.1+incompatible/go.mod h1:zQrzJEdze2hfWJDgktd/L6sROjAdCThFrzjbxw4keTs=
 github.com/github/hub v2.11.2+incompatible/go.mod h1:zQrzJEdze2hfWJDgktd/L6sROjAdCThFrzjbxw4keTs=
-github.com/go-sql-driver/mysql v1.5.0/go.mod h1:DCzpHaOWr8IXmIStZouvnhqoel9Qv2LBy8hT2VhHyBg=
 github.com/jingweno/go-sawyer v0.0.0-20140729165055-1999ae5763d6/go.mod h1:cp3HFHBb/V8Qd4OUxZ8kz8lhwN3HKkMgKFhyM7H5+q4=
 github.com/jmespath/go-jmespath v0.4.0 h1:BEgLn5cpjn8UN1mAw4NjwDrS35OdebyEtFe+9YPoQUg=
 github.com/jmespath/go-jmespath v0.4.0/go.mod h1:T8mJZnbsbmF+m6zOOFylbeCJqk5+pHWvzYPziyZiYoo=
